@@ -1,43 +1,43 @@
-require('dotenv').config();
+require("dotenv").config();
 
-const express = require('express')
-const cors = require('cors')
-const { createServer } = require('http')
-const cookieParser = require('cookie-parser')
+const express = require("express");
+const cors = require("cors");
+const { createServer } = require("http");
+const cookieParser = require("cookie-parser");
 
-const websocket = require('./utils/websocket')
+const websocket = require("./utils/websocket");
 
 // Import routes
-const authRoutes = require('./routes/auth.routes')
-const taskRoutes = require('./routes/task.routes')
+const authRoutes = require("./routes/auth.routes");
+const taskRoutes = require("./routes/task.routes");
 
 // Load environment variables
-const PORT = Number(process.env.PORT)
+const PORT = Number(process.env.PORT);
 
 // Create Express app
-const app = express()
+const app = express();
 
-app.use(cors())
-app.use(cookieParser())
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
+app.use(cors());
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Use routes
-app.use('/api', authRoutes)
-app.use('/api', taskRoutes)
+app.use("/api", authRoutes);
+app.use("/api", taskRoutes);
 
 // Create HTTP server
-const server = createServer(app)
+const server = createServer(app);
 
 // Initialize WebSocket
-websocket.init(server)
+websocket.init(server);
 
 // Test endpoint
-app.get('/', (req, res) => {
-    res.json({ message: 'Welcome to the Task Manager application.' })
-})
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the Task Manager application." });
+});
 
 // Start server
 server.listen(PORT, () => {
-    console.log(`Server is running on port : ${PORT}.`)
-})
+  console.log(`Server is running on port : ${PORT}.`);
+});

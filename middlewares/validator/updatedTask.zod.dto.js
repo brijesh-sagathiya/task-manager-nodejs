@@ -1,10 +1,12 @@
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require("express-validator");
 
 // Validation rules for updating task data
 const validateUpdateTaskData = [
-  body('title').notEmpty().withMessage('Title is required'),
-  body('description').notEmpty().withMessage('Description is required'),
-  body('status').isIn(['pending', 'in-progress', 'completed']).withMessage('Invalid status value')
+  body("title").notEmpty().withMessage("Title is required"),
+  body("description").notEmpty().withMessage("Description is required"),
+  body("status")
+    .isIn(["pending", "in-progress", "completed"])
+    .withMessage("Invalid status value"),
 ];
 
 // Middleware function to validate request data for updating task
@@ -20,5 +22,5 @@ const validateUpdateTask = (req, res, next) => {
 
 module.exports = {
   validateUpdateTaskData,
-  validateUpdateTask
+  validateUpdateTask,
 };

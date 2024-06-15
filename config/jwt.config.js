@@ -1,8 +1,8 @@
-const dotenv = require('dotenv')
+const dotenv = require("dotenv");
 
-dotenv.config()
+dotenv.config();
 
 // Configuration for JWT secret
 module.exports = {
-    secret: process.env.JWT_SECRET || 'default_secret',
-}
+  secret: process.env.JWT_SECRET || "default_secret",
+};

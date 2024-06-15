@@ -1,10 +1,10 @@
-const { body, validationResult } = require('express-validator');
+const { body, validationResult } = require("express-validator");
 
 // Validation rules for task data
 const validateTaskData = [
-  body('userId').isInt().withMessage('User ID must be an integer'),
-  body('title').notEmpty().withMessage('Title is required'),
-  body('description').notEmpty().withMessage('Description is required')
+  body("userId").isInt().withMessage("User ID must be an integer"),
+  body("title").notEmpty().withMessage("Title is required"),
+  body("description").notEmpty().withMessage("Description is required"),
 ];
 
 // Middleware function to validate request data
@@ -20,5 +20,5 @@ const validate = (req, res, next) => {
 
 module.exports = {
   validateTaskData,
-  validate
+  validate,
 };

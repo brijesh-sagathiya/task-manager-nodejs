@@ -1,5 +1,6 @@
 markdown
 Copy code
+
 # Task Manager
 
 Task Manager is a Node.js application that allows users to manage their tasks. It provides features such as user authentication, task CRUD operations, and real-time updates using WebSockets.
@@ -35,16 +36,21 @@ Task Manager is a Node.js application that allows users to manage their tasks. I
 ## Installation
 
 1. Clone the repository:
+
 ```
 git clone <repository-url>
 cd task-manager
 ```
+
 2. Install dependencies:
+
 ```
 npm install || yarn
 ```
+
 3. Set up environment variables::
-Create a .env file in the root directory and add the following variables:
+   Create a .env file in the root directory and add the following variables:
+
 ```
 # Server Port Number
 PORT=<PORT-NUMBER> # 3000
@@ -66,17 +72,22 @@ JWT_SECRET=<JWT-SECRET> #GkJQ3azKcXvOviy
 
 Start the application:
 
-1. 
+1.
+
 ```
 npm run dev || yarn dev
 ```
+
 #### OR
+
 ```
 npm start || yarn start
 ```
+
 Use API endpoints to interact with the application (refer to the API documentation).
 
 API Endpoints
+
 - User Registration: POST /api/register
 - User Login: POST /api/login
 - Get All Tasks: GET /api/tasks (Authenticated users only)
@@ -86,4 +97,5 @@ API Endpoints
 - Delete Task: DELETE /api/tasks/:id (Authenticated users only)
 
 ### WebSocket Events
+
 - Task Status Update: WebSocket event taskStatusUpdate notifies users when a task's status is updated.
